@@ -1,11 +1,15 @@
 #include<iostream>
+#include"algox.h"
 using namespace std;
 
 int main(){
-	string s;
-	cout<<"Hello world"<<endl;
-	cin >> s;
-	cout<<"Hello world 2 "<< s << endl << endl;
+	Dlink matrix;
+
+	matrix.add_column("Column1");
+	matrix.print_headers();
+	matrix.add_column("Column2");
+	matrix.print_headers();
+
 	return 0;
 }
 

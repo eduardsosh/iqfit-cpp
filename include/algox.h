@@ -7,6 +7,8 @@ struct Node{
     Node* left;
     Node* columno; // Pointer to column object
 
+    Node();
+
 };
 struct HeaderNode : Node{
     int one_count;
@@ -15,19 +17,15 @@ struct HeaderNode : Node{
 
 //struct ElementNode : Node{};
 
+// Main circular linked list class
 class Dlink
 {
 private:
-    Node* root;
+    Node root;
 public:
-    Dlink(/* args */);
+    Dlink();
     ~Dlink();
+    void add_row();
+    void add_column(std::string name);
+    void print_headers();
 };
-
-Dlink::Dlink(/* args */)
-{
-}
-
-Dlink::~Dlink()
-{
-}
