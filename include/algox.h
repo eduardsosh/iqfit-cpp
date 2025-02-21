@@ -1,31 +1,47 @@
-#include<string>
+#ifndef ALGOX_H
+#define ALGOX_H
 
-struct Node{
+#include <string>
+#include <vector>
+
+struct Node;
+struct HeaderNode;
+
+struct Node {
     Node* up;
     Node* down;
-    Node* right;
     Node* left;
-    Node* columno; // Pointer to column object
-
+    Node* right;
+    Node* columno;
+    int rowIndex;
     Node();
-
-};
-struct HeaderNode : Node{
-    int one_count;
-    std::string name;
 };
 
-//struct ElementNode : Node{};
+struct HeaderNode : public Node {
+    std::string name;   
+    int one_count;       
+    int colIndex;        
+    HeaderNode() {
+        one_count = 0;
+        colIndex  = -1;
+    }
+};
 
-// Main circular linked list class
-class Dlink
-{
-private:
+class Dlink {
+public:
     Node root;
+    int colCount;
+    int rowCount;
+    int currentRowIndex;
+
 public:
     Dlink();
     ~Dlink();
-    void add_row();
     void add_column(std::string name);
+    void add_row(std::vector<bool> row);
+    void from_2d_vector(std::vector<std::vector<bool>> matrix);
     void print_headers();
+    void print_matrix();
 };
+
+#endif
